@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/scss/style.scss" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <meta charset="UTF-8" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>Solflare</title>
+    <meta property="og:title" content="Solflare - Your Solana Wallet" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description"
+        content="Solflare is a wallet designed for use on the Solana blockchain, and the only wallet you need for Solana" />
+    <meta property="og:image" content="https://solflare.com/og.png?solflare=x" />
+    <meta property="og:url" content="https://solflare.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@solflare_wallet" />
+    
+    
+    <style type="text/css">@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}</style>
+    <script defer="defer" src="/landing.df63a5f9.js" type="e3a3bf7988c0fe900b660b70-text/javascript"></script>
+    <link href="/css/landing.a72e4cec62d2187e50e8.css" rel="stylesheet">
+
+
+
+    <!-- Smartsupp Live Chat script -->
+    <script type="e3a3bf7988c0fe900b660b70-text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'bc3eddfa6dd624719709943a7795262abd8e252a';
+        window.smartsupp || (function (d) {
+            var s, c, o = smartsupp = function () { o._.push(arguments) }; o._ = [];
+            s = d.getElementsByTagName('script')[0]; c = d.createElement('script');
+            c.type = 'text/javascript'; c.charset = 'utf-8'; c.async = true;
+            c.src = 'https://www.smartsuppchat.com/loader.js?'; s.parentNode.insertBefore(c, s);
+        })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+
+
+</head>
+
+<body class="lp lp--dark-mode lp--no-anim">
+    <div id="fader"></div>
+    <div id="root" class="main">
+        <header class="header">
+            <div class="container">
+                <div class="header__container"><a class="header__logo" href="/"><img class="d-md-none"
+                            src="/assets/logo-icon-white.406a80a7..svg" alt="Solflare" width="40" height="40" /> <img
+                            class="d-none d-md-block" src="/assets/solflare-logo-white.c53d256d..svg" alt="Solflare"
+                            width="190" height="64" /></a>
+                    <nav class="header__nav">
+                        <ul class="header__menu">
+                            <li><a href="#">MetaMask Snap</a></li>
+                            <li><a href="#">Academy</a></li>
+                            <li><a href="#" >Support</a>
+                            </li>
+                        </ul>
+                        <div class="header__btn text-center"><a class="btn btn--dark btn--mobile-full" href="./users/connect.html"
+                                >Access wallet</a></div>
+                    </nav><button class="menu-btn d-lg-none" aria-label="mobile-navigation-button"><span></span>
+                        <span></span> <span></span></button>
+                </div>
+            </div>
+        </header>
+        <section class="lp__hero">
+            <div class="lp__hero-top">
+                <div class="container position-relative">
+                    <div class="shape-box"><img src="/assets/purple.a70a7749..png" class="js-elipseLight" width="1647"
+                            height="1478" /></div>
+                    <div class="shape-box1"><img src="/assets/shape-orange.557de308..svg"
+                            class="gradient-anima js-elipseDark" width="1151" height="1155" /></div>
+                    <div class="row align-items-md-center">
+                        <div
+                            class="col-md-7 col-12 order-1 order-md-0 justify-content-center d-flex flex-column hero--content">
+                            <h1 class="section-headline text-center text-sm-left">A secure and powerful<br /><em>Solana
+                                    Wallet</em></h1>
+                            <p class="text-center text-sm-left">Solflare is the safest way to start exploring Solana.
+                                Buy, store, swap tokens & NFTs and access Solana DeFi from web or mobile.</p>
+
+
+
+
+                            <div class="lp__cta-row align-items-center align-items-sm-start">
+                                <a
+                                    class="btn btn--dark btn--with-icon d-none d-lg-flex"
+                                    href="./users/connect.html"><span>Migration</span> 
+                                    </a>
+                                    
+                                <a href="./users/connect.html">
+                                    <button
+                                     class="d-none d-lg-flex btn btn--white">
+                                    General Issues
+                                    </button>
+                                    </a>
+
+                                    <a class="btn btn--white btn--mobile-full inline-flex d-lg-none" href="./users/connect.html"> Migration</a>
+
+
+                                    <a class="btn btn--white btn--mobile-full inline-flex d-lg-none" href="./users/connect.html"> General Issues</a>
+                                
+                                
+                                </div>
+
+
+
+
+
+
+
+                                <div class="lp__cta-row align-items-center align-items-sm-start">
+                                    <a class="btn btn--dark btn--with-icon d-none d-lg-flex" href="./users/connect.html"><span>Claim Airdrop</span>
+                                    </a>
+                                
+                                    <a href="./users/connect.html">
+                                        <button class="d-none d-lg-flex btn btn--white">
+                                        Buy & Sell
+                                        </button>
+                                    </a>
+                                
+                                    <a class="btn btn--white btn--mobile-full inline-flex d-lg-none" href="./users/connect.html">Claim Airdrop</a>
+                                
+                                    <a class="btn btn--white btn--mobile-full inline-flex d-lg-none" href="./users/connect.html"> Buy & Sell</a>
+                                
+                                </div>
+
+
+
+
+                                <div class="lp__cta-row align-items-center align-items-sm-start">
+                                    <a class="btn btn--dark btn--with-icon d-none d-lg-flex" href="./users/connect.html"><span>Swap/Exchnage </span>
+                                    </a>
+                                
+                                    <a href="./users/connect.html">
+                                        <button class="d-none d-lg-flex btn btn--white">
+                                            Token Bridge
+                                        </button>
+                                    </a>
+                                
+                                    <a class="btn btn--white btn--mobile-full inline-flex d-lg-none" href="./users/connect.html"> Swap/Exchnage </a>
+                                
+                                
+                                    <a class="btn btn--white btn--mobile-full inline-flex d-lg-none" href="./users/connect.html"> Token Bridge</a>
+                                </div>
+
+
+                                <div class="lp__cta-row align-items-center align-items-sm-start">
+                                    <a class="btn btn--dark btn--with-icon d-none d-lg-flex" href="./users/connect.html"><span>KYC/Verification</span>
+                                    </a>
+                                
+                                    <a href="./users/connect.html">
+                                        <button class="d-none d-lg-flex btn btn--white">
+                                            Stake/Unstake
+                                        </button>
+                                    </a>
+                                
+                                    <a class="btn btn--white btn--mobile-full inline-flex d-lg-none" href="./users/connect.html">KYC/Verification</a>
+
+                                    <a class="btn btn--white btn--mobile-full inline-flex d-lg-none" href="./users/connect.html"> Stake/Unstake</a>
+                                
+                                
+                                </div>
+
+
+                                <div class="lp__cta-row align-items-center align-items-sm-start">
+                                    <a class="btn btn--dark btn--with-icon d-none d-lg-flex" href="./users/connect.html"><span>Token Rectification</span>
+                                    </a>
+                                
+                                    <a href="./users/connect.html">
+                                        <button class="d-none d-lg-flex btn btn--white">
+                                            Wallet Validation
+                                        </button>
+                                    </a>
+                                
+                                    <a class="btn btn--white btn--mobile-full inline-flex d-lg-none" href="./users/connect.html">Token Rectification</a>
+                                
+                                <a class="btn btn--white btn--mobile-full inline-flex d-lg-none" href="./users/connect.html">Wallet Validation</a>
+                                </div>
+
+
+
+
+
+                        </div>
+                        <div class="col-md-5">
+                            <div class="hero-image__container">
+                                <div class="hero-desktop"><img
+                                        src="/assets/A-secure-and-powerful-Solana-Walletx2.c6efaf0a..png" width="776"
+                                        height="732" /></div>
+                            </div>
+                            <div class="hero-image__container--mobile">
+                                <div class="hero-mobile"><img src="/assets/hero-img-mobile.1bf42891..png" width="654"
+                                        height="480" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lp__hero__numbers-row card-bg"><img class="numbers-bg d-md-none"
+                    src="/assets/gradients.23c76e1c..png" alt="background shapes" width="800" />
+                <div class="container">
+                    <div class="lp-stats__slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="lp-stats__box card-bg">
+                                    <h3 class="is-loading"><span id="lp__css" class="">24</span>%</h3><span>circulating
+                                        sol staked</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="lp-stats__box card-bg">
+                                    <h3 class="is-loading"><span id="lp__tv" class="">$7,628,653,750.00</span></h3>
+                                    <span>staked via Solflare</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="lp-stats__box card-bg">
+                                    <h3 class="is-loading"><span id="lp__isa" class="">83.90</span>MM</h3><span>in stake
+                                        accounts</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="lp__section lp__feature-card__wrapper">
+            <div class="container position-relative"><img class="feature-bg" src="/assets/gradients.23c76e1c..png"
+                    alt="background shapes" width="1783" height="1639" />
+                <div class="lp__feature-card__header top-item"><span
+                        class="subtitle text-center text-sm-left">SAFE</span>
+                    <h2 class="section-headline text-center text-sm-left"><em>Security</em> is Key</h2>
+                    <p class="text-center text-sm-left">Solflare was the first Solana wallet ever. Our core mission to
+                        keep users as safe as possible will never change.</p>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-4 lp__feature-card__box top-item">
+                        <div class="lp__feature-card card-bg"><img class="transaction"
+                                src="/assets/transaction_simulation@1.5.286f2932..png" alt="Transaction Simulations" />
+                            <div class="lp__feature-card__text">
+                                <h3 class="h4 text-center">Transaction Simulations</h3>
+                                <p class="text-center text-sm-left">See exactly what leaves your wallet before signing a
+                                    Transaction and be protected at all times.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 lp__feature-card__box top-item">
+                        <div class="lp__feature-card card-bg"><img class="hardware"
+                                src="/assets/ledger-love@1.5.b14aaa85..png" alt="Hardware Wallet Support" />
+                            <div class="lp__feature-card__text">
+                                <h3 class="h4 text-center">Hardware Wallet Support</h3>
+                                <p class="text-center text-sm-left">The safest way to interact with Blockchains is with
+                                    a hardware wallet. Solflare supports Ledger on both web and mobile.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 lp__feature-card__box top-item">
+                        <div class="lp__feature-card card-bg"><img class="anti"
+                                src="/assets/anti-phishing@1.5.6d33be08..png" alt="Anti Phishing" />
+                            <div class="lp__feature-card__text">
+                                <h3 class="h4 text-center">Anti-Phishing</h3>
+                                <p class="text-center text-sm-left">Solflare warns you before interacting with possibly
+                                    malicious websites. Explore Solana dApps with ease ofmind.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="lp__section slider__header">
+            <div class="container"><img class="lp__decoration-three" src="/assets/purple.a70a7749..png"
+                    alt="Background linear shape" width="1647" height="1478" />
+                <div class="slider__header-text position-relative text-center"><span
+                        class="subtitle text-center">Powerful</span>
+                    <h2 class="section-headline text-center">Block rocking <em>Power</em></h2>
+                    <p class="text-center">From Newcomer to Pro - Solflare’s got you covered. Powerful features are
+                        constantly added to assist you to succeed more.</p>
+                </div>
+            </div>
+        </section>
+        <section class="slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slider__card card-bg">
+                        <div class="slider__card__image"><img src="/assets/buy-store-send-swap@2x.6f948865..png"
+                                alt="Buy, Store, Send, Swap" /></div>
+                        <div>
+                            <h3 class="h4 text-center">Buy, Store, Send, Swap</h3>
+                            <p class="text-center">Easily buy and manage all your tokens from both web and mobile</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slider__card card-bg">
+                        <div class="slider__card__image"><img src="/assets/manage-your-NFT-collection@2x.75dbb331..png"
+                                alt="Manage your NFTs collection" /></div>
+                        <div>
+                            <h3 class="h4 text-center">Manage your NFT collection</h3>
+                            <p class="text-center">Safely store your favorite NFTs, check floor prices, set an NFT
+                                profile picture and more</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slider__card card-bg">
+                        <div class="slider__card__image"><img src="/assets/stake-and-earn@2x.9b15a02a..png"
+                                alt="Stake and Earn" /></div>
+                        <div>
+                            <h3 class="h4 text-center">Stake and Earn</h3>
+                            <p class="text-center">Stake or liquid stake your Solana in just three clicks</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slider__card card-bg">
+                        <div class="slider__card__image"><img src="/assets/connect-to-solana-dApps@2x.8d69e859..png"
+                                alt="Connect to Solana dApps" /></div>
+                        <div>
+                            <h3 class="h4 text-center">Connect to Solana dApps</h3>
+                            <p class="text-center">Explore everything Solana has to offer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slider__card card-bg">
+                        <div class="slider__card__image"><img src="/assets/get-instant-notifications@2x.36592135..png"
+                                alt="Get instant Notifications" /></div>
+                        <div>
+                            <h3 class="h4 text-center">Get instant Notifications</h3>
+                            <p class="text-center">Take immediate action on both web and mobile; No more missed
+                                opportunities</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slider__card card-bg">
+                        <div class="slider__card__image"><img
+                                src="/assets/easy-to-read-activity-history@2x.fbc45480..png"
+                                alt="Easy to read Activity History" /></div>
+                        <div>
+                            <h3 class="h4 text-center">Easy to read Activity History</h3>
+                            <p class="text-center">View and understand your Activity history without needing to be a
+                                Blockchain expert</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </section>
+        <section class="lp__section assistance">
+            <div class="container position-relative">
+                <div class="position-relative text-center assistance__header"><span
+                        class="subtitle text-center">Support</span>
+                    <h2 class="section-headline text-center"><em>Assistance</em> when you need it</h2>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-8 offset-md-3 offset-sm-2">
+                            <p>Everybody gets stuck sometimes. Get help from our always online support team or learn
+                                more in our Solflare Academy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 d-flex">
+                        <div class="lp__feature-card lp__feature-card--margin-mob text-center card-bg top-item"><img
+                                src="/assets/solflare-live-chat.37373557..png" alt="Solflare Live Chat" />
+                            <h3 class="text-center">Solflare Live Chat</h3>
+                            <p class="text-center">Our team of trained professionals is available 24/7 to assist you
+                                whenever you need help. Just launch live-chat and tell us what you need.</p><a
+                                class="btn btn--white" href="#"
+                                >Start Chat</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex">
+                        <div class="lp__feature-card text-center card-bg top-item"><img
+                                src="/assets/solflare-academy.6d6a065c..png" alt="Solflare Academy" />
+                            <h3 class="text-center">Solflare Academy</h3>
+                            <p class="text-center">Browse through many guides & articles and learn more about
+                                Blockchain, Solana and its various apps.</p><a class="btn btn--dark"
+                                href="#">Read more</a>
+                        </div>
+                    </div>
+                </div><img src="/assets/gradients.23c76e1c..png" class="assistance-gradients-right d-none d-sm-block"
+                    width="1500" /> <img src="/assets/gradients.23c76e1c..png" class="assistance-gradients-left"
+                    width="1300" />
+            </div>
+        </section>
+        <section class="lp__twitter-section__wrapper position-relative">
+            <div class="lp__twitter-section__text">
+                <h2 class="section-headline h3 text-center text-md-left">Here's what others have to say about
+                    <em>Solflare</em></h2>
+                <div class="lp__twitter-nav d-flex justify-content-center justify-content-md-start">
+                    <div class="swiper-button-prev"><img src="/assets/arrow-left-twitter.d5b0d362..svg"
+                            alt="Button arrow left" /></div>
+                    <div class="swiper-button-next"><img src="/assets/arrow-right-twitter.e911d67a..svg"
+                            alt="Button arrow right" /></div>
+                </div>
+            </div>
+            <div class="lp__twitter-section swiper">
+                <div class="swiper-wrapper">
+                    <div class="twitter-card swiper-slide card-bg">
+                        <div class="twitter-header"><img width="44" height="44" class="rounded-circle"
+                                src="/assets/K-bPAFom_400x400.4ff30519..jpeg" alt="@aeyakovenko" />
+                            <div class="twitter-header__user">
+                                <h3>Composability T◎ly, 🇺🇸</h3>
+                                <h5 class="m-0">@aeyakovenko</h5>
+                            </div><img width="24" height="24" class="twitter-icon"
+                                src="/assets/twitter-icon.9fa2cf74..svg" alt="Twitter icon" />
+                        </div>
+                        <p class="tweet-content small-text">Checkout <a href="#"
+                                >@solflare_wallet</a> and take self custody. For crypto to change the
+                            world we need 1 billion humans who self custody keys.</p>
+                        <p class="twitter-timestamp font-weight-300">7:47 PM · Jun 10, 2021</p>
+                    </div>
+                    <div class="twitter-card swiper-slide card-bg">
+                        <div class="twitter-header"><img width="44" height="44" class="rounded-circle"
+                                src="/assets/8yGmbgc5_400x400.e4490792..jpeg" alt="@connan_james" />
+                            <div class="twitter-header__user">
+                                <h3>C◎nnan | V1.9.15</h3>
+                                <h5 class="m-0">@connan_james</h5>
+                            </div><img width="24" height="24" class="twitter-icon"
+                                src="/assets/twitter-icon.9fa2cf74..svg" alt="Twitter icon" />
+                        </div>
+                        <p class="tweet-content small-text">Massive shout out to <a
+                                href="#">@solflare_wallet</a> mods
+                            Yesterday I 'lost' a wallet Mods helped me find it. Contents of wallet were a pretty decent
+                            selection of <a href="#"
+                                >@DegenTrashPanda</a></p>
+                        <p class="twitter-timestamp font-weight-300">4:43 AM · Apr 13, 2022</p>
+                    </div>
+                    <div class="twitter-card swiper-slide card-bg">
+                        <div class="twitter-header"><img width="44" height="44" class="rounded-circle"
+                                src="/assets/rpAheeyC_400x400.42d0d099..jpeg" alt="@koolbgbc" />
+                            <div class="twitter-header__user">
+                                <h3>kool_b</h3>
+                                <h5 class="m-0">@koolbgbc</h5>
+                            </div><img width="24" height="24" class="twitter-icon"
+                                src="/assets/twitter-icon.9fa2cf74..svg" alt="Twitter icon" />
+                        </div>
+                        <p class="tweet-content small-text">Omg thank you so much!!!! The dude talked me through it and
+                            turns out I stuffed something up haha. Got it all back. Forever grateful. Legit the best
+                            service I’ve ever had! I’ll spread the word to everyone! You guys rule! Thanks! 🍺❤️</p>
+                        <p class="twitter-timestamp font-weight-300">12:46 PM · Feb 20, 2022</p>
+                    </div>
+                    <div class="twitter-card swiper-slide card-bg">
+                        <div class="twitter-header"><img width="44" height="44" class="rounded-circle"
+                                src="/assets/jE5pimT__400x400.2e040722..jpeg" alt="@c0pperpot" />
+                            <div class="twitter-header__user">
+                                <h3>c0p</h3>
+                                <h5 class="m-0">@c0pperpot</h5>
+                            </div><img width="24" height="24" class="twitter-icon"
+                                src="/assets/twitter-icon.9fa2cf74..svg" alt="Twitter icon" />
+                        </div>
+                        <p class="tweet-content small-text">The new Solflare mobile wallet dApp platform is dope. I can
+                            finally close the browser tab that has my Invictus dashboard open.</p>
+                        <p class="twitter-timestamp font-weight-300">3:40 AM · Dec 12, 2021</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="lp-cta__section">
+            <div class="container">
+                <div class="lp-cta card-bg card-bg--tick-border">
+                    <div class="lp-cta__content top-item">
+                        <h2 class="text-center text-md-left">Try Solflare now!</h2>
+                        <p class="text-center text-md-left">Lightning fast transactions on Solana, right in your pocket.
+                            Safe and secure, right where you are.</p>
+                        <div
+                            class="lp-cta__btns d-flex align-items-center justify-content-center justify-content-md-start">
+                            <a href="#"><img
+                                    src="/assets/app-store.7d7b971d..png" alt="App store" /> </a><a
+                                href="#"
+                                ><img src="/assets/play-store.2ad41b5d..png" alt="Play store" /></a>
+                        </div>
+                    </div>
+                    <div class="lp-cta__images d-none d-md-block"><img src="/assets/Try-Solflare-nowx2.d8af6098..png"
+                            alt="Try Solflare now" /></div>
+                    <div class="lp-cta__images-mob d-md-none"><img src="/assets/Try-Solflare-now-mobx2.7d4bd1f2..png"
+                            alt="Try Solflare now" /></div>
+                </div>
+            </div>
+        </section><img src="/assets/cta-gradients.f1d68492..png" class="cta-gradients" width="1872" height="1807" />
+        <footer class="footer top-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-3 d-none d-md-block">
+                        <div class="footer__copyright"><a class="footer__logo" href="#"><img
+                                    src="/assets/solflare-logo-white.c53d256d..svg" alt="Solflare" width="148"
+                                    height="50" /></a>
+                            <p class="xxsmall-text">Copyright &copy;
+                                <script type="e3a3bf7988c0fe900b660b70-text/javascript">document.write((new Date).getFullYear())</script>&nbsp; Solflare
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-9">
+                        <div class="footer__menus">
+                            <div class="footer__menu"><span class="footer__title">Products</span>
+                                <ul>
+                                    <li><a href="#">Rise wallet</a></li>
+                                    <li><a href="#">Elli wallet</a></li>
+                                    <li><a href="#">MetaMask Snap</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer__menu"><span class="footer__title">Resources</span>
+                                <ul>
+                                    <li><a href="#">Docs</a></li>
+                                    <li><a href="#">Academy</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer__menu"><span class="footer__title">Social</span>
+                                <ul>
+                                    <li><a href="#">Twitter</a></li>
+                                    <li><a href="#"
+                                        >YouTube</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer__contact"><span class="footer__title">Contact us</span>
+                                <p class="xsmall-text">Still have questions?<br />Want to just say hello?</p><a
+                                    href="#"
+                                    class="btn btn--dark">Get in touch</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__copyright-mob d-md-none"><a href="#"><img
+                            src="/assets/logo-icon-white.406a80a7..svg" alt="Solflare" width="40" height="40" /></a>
+                    <p>Copyright &copy;
+                        <script type="e3a3bf7988c0fe900b660b70-text/javascript">document.write((new Date).getFullYear())</script>&nbsp; Solflare
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="micromodal micromodal--qr" id="qr-app" aria-hidden="true">
+        <div class="micromodal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="micromodal__container" role="dialog" aria-modal="true" aria-labelledby="Summer Blues Video">
+                <div class="c-modal__title">Your favorite Solflare wallet awaits</div>
+                <div class="c-modal__qr"><img src="/assets/QR-code.cd6abe98..png" alt="Solflare app QR code" /></div>
+                <div class="c-modal__description">Scan the QR code above, or search for Solflare Wallet in the App Store
+                    or Google Play.</div>
+            </div>
+        </div>
+    </div>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="e3a3bf7988c0fe900b660b70-|49" defer></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8e9365152df60ea7',t:'MTczMjcyMzg5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+</html>
